@@ -1,20 +1,20 @@
 package com.github.javiersantos.appupdater;
 
-import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.media.RingtoneManager;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.net.URL;
 
@@ -41,7 +41,7 @@ class UtilsDisplay {
     }
 
     static Snackbar showUpdateAvailableSnackbar(final Context context, String content, Boolean indefinite, final UpdateFrom updateFrom, final URL apk) {
-        Activity activity = (Activity) context;
+        AppCompatActivity activity = (AppCompatActivity) context;
         int snackbarTime = indefinite ? Snackbar.LENGTH_INDEFINITE : Snackbar.LENGTH_LONG;
 
         /*if (indefinite) {
@@ -61,7 +61,7 @@ class UtilsDisplay {
     }
 
     static Snackbar showUpdateNotAvailableSnackbar(final Context context, String content, Boolean indefinite) {
-        Activity activity = (Activity) context;
+        AppCompatActivity activity = (AppCompatActivity) context;
         int snackbarTime = indefinite ? Snackbar.LENGTH_INDEFINITE : Snackbar.LENGTH_LONG;
 
         /*if (indefinite) {

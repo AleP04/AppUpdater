@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "com.github.javiersantos.appupdater.demo"
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 32
         versionCode 4
         versionName "0.1"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
@@ -19,10 +19,6 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
-    }
-
     lintOptions {
         disable 'MissingTranslation'
     }
@@ -30,17 +26,17 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation project(':library')
 
     // Testing-only dependencies
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation('com.android.support.test:runner:1.0.1', {
+    androidTestImplementation('androidx.test.ext:junit:1.1.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }

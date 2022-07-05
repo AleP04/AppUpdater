@@ -2,17 +2,16 @@ package com.github.javiersantos.appupdater.demo;
 
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.github.javiersantos.appupdater.AppUpdater;
-import com.github.javiersantos.appupdater.demo.databinding.ActivityMainBinding;
 import com.github.javiersantos.appupdater.enums.Display;
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
 
@@ -22,18 +21,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        this.setContentView(R.layout.activity_main);
         this.mContext = this;
-        setSupportActionBar(binding.toolbar);
+        setSupportActionBar(findViewById(R.id.toolbar));
 		
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/javiersantos/AppUpdater")));
             }
         });
 
-        binding.included.dialogUpdateChangelog.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.dialog_update_changelog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.included.dialogUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.dialog_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.included.snackbarUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.snackbar_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.included.notificationUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.notification_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.included.dialogNoUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.dialog_no_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.included.snackbarNoUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.snackbar_no_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.included.notificationNoUpdate.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.notification_no_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AppUpdater(mContext)
