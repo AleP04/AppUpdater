@@ -7,9 +7,10 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.github.javiersantos.appupdater.enums.AppUpdaterError;
 import com.github.javiersantos.appupdater.enums.Display;
@@ -35,7 +36,7 @@ public class AppUpdater implements IAppUpdater {
     private UtilsAsync.LatestAppVersion latestAppVersion;
     private DialogInterface.OnClickListener btnUpdateClickListener, btnDismissClickListener, btnDisableClickListener;
 
-    private MaterialAlertDialogBuilder alertDialog;
+    private AlertDialog alertDialog;
     private Snackbar snackbar;
     private Boolean isDialogCancelable;
 

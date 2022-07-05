@@ -9,8 +9,10 @@ import android.content.DialogInterface;
 import android.media.RingtoneManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.github.javiersantos.appupdater.enums.UpdateFrom;
 
@@ -18,7 +20,7 @@ import java.net.URL;
 
 class UtilsDisplay {
 
-    static MaterialAlertDialogBuilder showUpdateAvailableDialog(final Context context, String title, String content, String btnNegative, String btnPositive, String btnNeutral, final DialogInterface.OnClickListener updateClickListener, final DialogInterface.OnClickListener dismissClickListener, final DialogInterface.OnClickListener disableClickListener) {
+    static AlertDialog showUpdateAvailableDialog(final Context context, String title, String content, String btnNegative, String btnPositive, String btnNeutral, final DialogInterface.OnClickListener updateClickListener, final DialogInterface.OnClickListener dismissClickListener, final DialogInterface.OnClickListener disableClickListener) {
         return new MaterialAlertDialogBuilder(context)
                 .setTitle(title)
                 .setMessage(content)
@@ -27,7 +29,7 @@ class UtilsDisplay {
                 .setNeutralButton(btnNeutral, disableClickListener).create();
     }
 
-    static MaterialAlertDialogBuilder showUpdateNotAvailableDialog(final Context context, String title, String content) {
+    static AlertDialog showUpdateNotAvailableDialog(final Context context, String title, String content) {
         return new MaterialAlertDialogBuilder(context)
                 .setTitle(title)
                 .setMessage(content)
